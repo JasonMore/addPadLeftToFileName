@@ -1,4 +1,4 @@
-const path = '/Users/jasonmore/Desktop/2015'
+const path = '/Users/jasonmore/Desktop/2017'
 
 const fs = require('fs')
 
@@ -7,7 +7,8 @@ fs.readdir(path, (err, files) => {
   console.log('files', files)
 
   files.forEach(file =>{
-    const match = /(n20\d\d_ - )(\d+)(.*)/.exec(file)
+    const match = /(a20\d\d_ - )(\d+)(.*)/.exec(file)
+    if(!match ) return
     const newNumber = leftpad(match[2], 4, '0')
 
     const originalPath = `${path}/${file}`
